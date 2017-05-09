@@ -10,13 +10,21 @@ public class bullet {
 	
 	public bullet(Color thisColor){
 		bulletColor = thisColor;
-		width = 5;
-		height = 5;
+		width = 10;
+		height = 10;
 	}
 	
 	public void setPosition(int thisX,int thisY){
 		x = thisX;
 		y = thisY;
+	}
+	
+	public int getY(){
+		return y;
+	}
+	
+	public int getX(){
+		return x;
 	}
 	
 	public void drawBullet(Graphics page){
