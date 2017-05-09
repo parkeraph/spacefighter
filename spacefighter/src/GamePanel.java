@@ -110,14 +110,14 @@ public class GamePanel extends JPanel {
 
 		public void actionPerformed(ActionEvent arg0){
 			if(bullet.getY() > 0){
+				int playerPos = player.getPosition();
 				int currentPos = bullet.getY();
 				System.out.println(currentPos);
-				bullet.setPosition(playPos, currentPos - 5);
+				bullet.setPosition(playerPos, currentPos - 5);
 				repaint();
 			}
 		} 
-		}
-		
 	}
 }
+
 
