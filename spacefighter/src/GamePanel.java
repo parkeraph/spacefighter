@@ -11,7 +11,8 @@ public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private int width, height;
 	ship player;
-	int shipPosition;
+	int initShipPosition;
+	int playerPos;
 	ArrayList<invader> invaders = new ArrayList<invader>();
 	private bullet bullet;
 	Timer timer;
@@ -25,7 +26,7 @@ public class GamePanel extends JPanel {
 		this.addKeyListener(new shipListener());
 		
 		//player starts at y=300 (middle)
-		shipPosition = 300;
+		initShipPosition = 300;
 		
 		//init player ship
 		player = new ship(Color.green);
@@ -73,7 +74,8 @@ public class GamePanel extends JPanel {
 	}
 	
 	public void shoot(){
-		bullet.setPosition(player.getPosition(), 490);
+		playerPos = player.getPosition();
+		bullet.setPosition(playerPos+20, 490);
 		timer.start();
 	}
 	
@@ -110,10 +112,9 @@ public class GamePanel extends JPanel {
 
 		public void actionPerformed(ActionEvent arg0){
 			if(bullet.getY() > 0){
-				int playerPos = player.getPosition();
 				int currentPos = bullet.getY();
 				System.out.println(currentPos);
-				bullet.setPosition(playerPos, currentPos - 5);
+				bullet.setPosition(playerPos+20, currentPos - 15);
 				repaint();
 			}
 		} 
